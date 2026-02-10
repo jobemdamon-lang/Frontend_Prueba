@@ -1,27 +1,35 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'NodeJS'
+        sonarQube 'SonarQube'
+    }
+
     stages {
 
-        stage('Instalar dependencias') {
+        stage('Checkout') {
             steps {
-                sh 'npm install'
+                checkout scm
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                bat 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
-        stage('Analisis SonarQube') {
+        stage('SonarQube Analysis') {
             steps {
-                script {
-                    def scannerHome = tool 'SonarScanner'
-                    withSonarQubeEnv('SonarQube') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
+                withSonarQubeEnv('SonarQube') {
+                    bat 'sonar-scanner'
                 }
             }
         }
