@@ -26,11 +26,14 @@ pipeline {
                 script {
                     def scannerHome = tool 'SonarScanner'
                     withSonarQubeEnv('SonarQube') {
-                        bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
+                        withEnv(['NODE_SKIP_PLATFORM_CHECK=1']) {
+                            bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
+                        }
                     }
                 }
             }
         }
+
 
         stage('Quality Gate') {
             steps {
