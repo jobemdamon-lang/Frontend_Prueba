@@ -1,0 +1,65 @@
+import { ExportMetrics, RegisterMetric, RegisterMetricParam, UpdatedMetric, UpdateMetricParam } from '../views/monitoring/administration/Types'
+import { IChangeTool, ICreatePolicy, IGenerateNewPolicy } from '../views/monitoring/politicas/Types'
+import { CancelImplement, CIToDelete, NewPolicy, UpdatedVersion, ExportPolicyMassiveParams, AddChangeDetail } from '../views/monitoring/politicas_v2/Types'
+import { Api, ApiManagementCCS } from './ApiV2'
+
+const MonitoringService = {
+   listMonitor: (params: any) => Api.post('/listarmonitor', params).then((data) => data.data),
+   monitorState: (params: any) => Api.post('/monitor_estado', params).then((data) => data.data),
+   createNewPolicy: (policy: ICreatePolicy) => ApiManagementCCS.post('/monitoreo/crear_politica', policy).then((data) => data.data),
+   getPoliciesByProject: (idProject: string) => ApiManagementCCS.get(`/monitoreo/listar_politicas_by_proyecto/${idProject}`).then((data) => data.data),
+   getCatalog: () => ApiManagementCCS.get('/monitoreo/listar_catalogo').then((data) => data.data),
+   getListCatalog: (id_project: string) => ApiManagementCCS.get(`/monitoreo/listar_equipos_by_proyecto/${id_project}`).then((data) => data.data),
+   exportPolicy: (idPolicy: string, nro_version: string) => ApiManagementCCS.post(`/monitoreo/exportar/${idPolicy}/${nro_version}`).then((data) => data.data),
+   generateNewPolicy: (policy: IGenerateNewPolicy) => ApiManagementCCS.post('/monitoreo/actualizar_politica', policy).then((data) => data.data),
+   getEquiposRestantes: (idPolicy: string) => ApiManagementCCS.get(`/monitoreo/listar_equipos_restantes/${idPolicy}`).then((data) => data.data),
+   updateStateOfPolicy: (idPolicy: string, nro_version: string, usuario: string) => ApiManagementCCS.post(`/monitoreo/actualizar_estado_politica/${idPolicy}/${nro_version}/${usuario}`).then((data) => data.data),
+   getCatalogInformation: (family: string, clase: string, typeServer: string) => ApiManagementCCS.get(`/monitoreo/listar_detalle_catalogo/${family}/${clase}/${typeServer}`).then((data) => data.data),
+   getMetricsOfPolicyVersion: (idPolicy: string, nroVersion: string) => ApiManagementCCS.get(`/monitoreo/listar_metrica_politica_version/${idPolicy}/${nroVersion}`).then((data) => data.data),
+   getCIsOfPolicyVersion: (idPolicy: string, nroVersion: string) => ApiManagementCCS.get(`/monitoreo/listar_cis_by_politica_version/${idPolicy}/${nroVersion}`).then((data) => data.data),
+   getListMetrisByCI: (idPolicy: string, nroVersion: string, idEquipo: string) => ApiManagementCCS.get(`/monitoreo/listar_metrica_by_politica_version_equipo/${idPolicy}/${nroVersion}/${idEquipo}`).then((data) => data.data),
+   getListOfMetricsOptionals: (family: string, clase: string, typeServer: string) => ApiManagementCCS.get(`/monitoreo/listar_metrica_opcional/${family}/${clase}/${typeServer}`).then((data) => data.data),
+   getListMetricsOfFamily: (family: string) => ApiManagementCCS.get(`/monitoreo/listar_metrica_by_familia/${family}`).then((data) => data.data),
+   cancelUpdatePolicy: (idPolicy: string, nro_Version: string, user: string) => ApiManagementCCS.get(`/monitoreo/cancelar_cambio_by_politica_version/${idPolicy}/${nro_Version}/${user}`).then((data) => data.data),
+   deleteCIsOfPolicy: (deletedCIs: any) => ApiManagementCCS.post(`/monitoreo/baja_equipos`, deletedCIs).then((data) => data.data),
+   listChangesToImplement: (idPolicy: string, nroVersion: string) => ApiManagementCCS.get(`/monitoreo/listar_cambios_realizados_politica_version/${idPolicy}/${nroVersion}`).then((data) => data.data),
+   listToolsByFamilyClase: (family: string, clase: string) => ApiManagementCCS.get(`/monitoreo/listar_herramienta_monitoreo/${family}/${clase}`).then((data) => data.data),
+   updateTools: (changes: IChangeTool) => ApiManagementCCS.post(`/monitoreo/actualizar_equipo_herramienta`, changes).then((data) => data.data),
+   getHistoricalChanges: (id_policy: string, nro_version: string) => ApiManagementCCS.get(`/monitoreo/listar_historial_politica/${id_policy}/${nro_version}`).then((data) => data.data),
+   //getHistoricalDetailChanges: (id_policy: string, id_historial: string) => ApiManagementCCS.get(`/monitoreo/listar_historial_detalle_politica/${id_policy}/${id_historial}`).then((data) => data.data)
+   //Nuevos endpoints
+   getPolicyVersionsByProject: (idProject: number) => ApiManagementCCS.get(`/monitoreo/listar_politicas_by_proyecto_v2/${idProject}`).then((data) => data),
+   getVersionDetail: (idPolicy: number, idVersion: number) => ApiManagementCCS.get(`/monitoreo/consulta_detalle_politica/${idPolicy}/${idVersion}`).then((data) => data),
+   getCIsInVersion: (idPolicy: number, idVersion: number, monitored: number) => ApiManagementCCS.get(`/monitoreo/consulta_equipos_politica/${idPolicy}/${idVersion}/${monitored}`).then((data) => data),
+   getRequestChangeDetail: (idChange: number) => ApiManagementCCS.get(`/monitoreo/consulta_cambio_detalle/${idChange}`).then((data) => data),
+   registerChange: (data: UpdatedVersion) => ApiManagementCCS.post(`/monitoreo/registrar_cambio_politica`, data).then((data) => data),
+   addChangeDetail: (data: AddChangeDetail) => ApiManagementCCS.post(`/monitoreo/agregar_cambio_detalle`, data).then((data) => data),
+   getMetricsByFamilyClase: (idFamilyClase: number) => ApiManagementCCS.get(`/monitoreo/listar_metrica_by_familia_v2/${idFamilyClase}`).then((data) => data),
+   getMetricCatalog: (idMetric: number) => ApiManagementCCS.get(`/monitoreo/listar_metrica/${idMetric}`).then((data) => data),
+   getChangeRequests: (idProject: number) => ApiManagementCCS.get(`/monitoreo/listar_cambios/${idProject}`).then((data) => data),
+   cancelImplementChange: (data: CancelImplement) => ApiManagementCCS.post(`/monitoreo/accion_implementar_cancelar`, data).then((data) => data),
+   updateChange: (data: UpdatedVersion) => ApiManagementCCS.put(`/monitoreo/registrar_cambio_politica`, data).then((data) => data),
+   deleteMetricChange: (idChangeMetric: number, idChangeParam: number) => ApiManagementCCS.delete(`/monitoreo/eliminar_metrica/${idChangeMetric}/${idChangeParam}`).then((data) => data),
+   deleteCI: (data: CIToDelete) => ApiManagementCCS.post(`/monitoreo/dar_baja_equipos`, data).then((data) => data),
+   getChangeByVersion: (idVersion: number) => ApiManagementCCS.get(`/monitoreo/consulta_cambio_detalle_by_version/${idVersion}`).then((data) => data),
+   getHistoricChanges: (idProject: number) => ApiManagementCCS.get(`/monitoreo/consulta_historico_cambios_v2/${idProject}`).then((data) => data),
+   initializePolicy: (data: NewPolicy) => ApiManagementCCS.post(`/monitoreo/crear_politica_v2`, data).then((data) => data),
+   getProjectsMonitoringOldVersion: (flag: number) => ApiManagementCCS.get(`/monitoreo/listar_proyectos_antiguo/${flag}`).then((data) => data),
+   getProjectsMonitoringNewVersion: () => ApiManagementCCS.get(`/monitoreo/listar_proyectos_nuevo`).then((data) => data),
+   exportPolicyV2: (idPolicy: number, idVersion: number) => ApiManagementCCS.post(`/monitoreo/exportar_v2/${idPolicy}/${idVersion}`).then((data) => data),
+   getMetrics: () => ApiManagementCCS.get(`/monitoreo/metrica`).then((data) => data),
+   createMetric: (data: RegisterMetric) => ApiManagementCCS.post(`/monitoreo/metrica`, data).then((data) => data),
+   updateMetric: (data: UpdatedMetric) => ApiManagementCCS.put(`/monitoreo/metrica`, data).then((data) => data),
+   getMetricParams: (idMetric: number) => ApiManagementCCS.get(`/monitoreo/metrica_parametro/${idMetric}`).then((data) => data),
+   createMetricParam: (data: RegisterMetricParam) => ApiManagementCCS.post(`/monitoreo/metrica_parametro`, data).then((data) => data),
+   updateMetricParam: (data: UpdateMetricParam) => ApiManagementCCS.put(`/monitoreo/metrica_parametro`, data).then((data) => data),
+   exportPolicyMassive: (idPolicy: number, data: ExportPolicyMassiveParams) => ApiManagementCCS.post(`/monitoreo/exportar_masivo/${idPolicy}`, data).then((data) => data),
+   exportMetrics: (params: ExportMetrics) => ApiManagementCCS.post("/monitoreo/exportarMetricas", params).then((data) => data),
+   importPolicy: (idPolicy:string, usuario:string, data: any) => ApiManagementCCS.post(`/monitoreo/importarArchivo/${idPolicy}/${usuario}`, data, {
+      responseType: 'arraybuffer'
+      }).then((data) => data),
+   deleteChangeCI: (idChangeCI: string) => ApiManagementCCS.delete(`/monitoreo/eliminar_ci_cambio/${idChangeCI}`).then((data) => data),
+   obtenerMetricasDefaultMasivo: (data: any) => ApiManagementCCS.post(`/monitoreo/obtener_metricas_default_masivo`, data).then((data) => data),
+   getCompatibleTools: (idEquipos: string) => ApiManagementCCS.get(`/monitoreo/obtener_herramientas_compatibles/${idEquipos}`).then((data) => data),
+}
+export { MonitoringService }

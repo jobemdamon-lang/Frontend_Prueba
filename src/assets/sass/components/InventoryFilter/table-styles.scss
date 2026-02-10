@@ -1,0 +1,9 @@
+.table-reponsive .rdt_TableBody{
+  min-height: 300px;
+  scrollbar-width: 100px;
+}
+
+.table-reponsive::-webkit-scrollbar {
+  height: 15px;
+  cursor: auto;
+}

@@ -1,0 +1,12 @@
+.showContent {
+  transition: all 1s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  max-height: 5000px;
+}
+.hideContent{
+  transition: all 1s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+}

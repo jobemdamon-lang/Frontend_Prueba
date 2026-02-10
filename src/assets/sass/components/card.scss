@@ -1,0 +1,28 @@
+.card-parent {
+  .card-header {
+    background-color: #476072;
+    min-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .card-title {
+      text-overflow: ellipsis;
+      color: rgb(234, 234, 234);
+      font-weight: bold;
+      letter-spacing: 0.3rem;
+    }
+  }
+
+  .card-footer {
+    background-color: #9DB2BF;
+    padding: 10px 20px;
+
+    p {
+      text-align: end;
+      color: black;
+      font-weight: 500;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

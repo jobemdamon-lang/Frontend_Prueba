@@ -1,0 +1,29 @@
+.server-information-parent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1.5fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+  .server-information-child {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 15px;
+
+    .available_patches_list {
+      max-height: 150px;
+      overflow-y: scroll;
+    }
+  }
+
+}
+
+.specifications_list li {
+  margin-bottom: 10px;
+}
+
+@media (width <=1050px) {
+  .server-information-parent {
+    grid-template-columns: 1fr;
+    /* Un columna cuando la pantalla es igual o menor a 1050px */
+  }
+}

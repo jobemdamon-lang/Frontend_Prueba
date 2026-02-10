@@ -1,0 +1,11 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 570px; /* Ajusta la altura total según tus necesidades */
+}
+
+.chat-container > .p-10 {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100% - 50px); /* Resta la altura del input-container */
+}

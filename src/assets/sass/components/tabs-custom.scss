@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+
+  .bloc-tabs {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    .tabs {
+      font-size: 1.1rem;
+      border: 0;
+      margin: 10px;
+      padding: 15px 0 15px 0;
+      text-align: center;
+      flex-grow: 1;
+      cursor: pointer;
+      border-radius: 10px 10px 0px 0px;
+      font-weight: 800;
+      background-color: rgba(233, 235, 235, 0.362);
+      color: rgba(164, 181, 226, 0.7);
+      position: relative;
+      text-transform: uppercase ;
+    }
+
+  }
+  .content-tabs{
+    .tab-content {
+      display: none;
+    }
+    .active-content {
+      display: block;
+    }
+  }
+}
+
+.tabs:hover {
+  span {
+    color: rgba(109, 121, 154);
+  }
+}
+
+.active-tab{
+  transition: box-shadow 0.5s, color 0.5s;
+  box-shadow:  inset 0 -1.5px 0px rgb(59, 91, 118); 
+  span {
+    color: rgba(109, 121, 154);
+  };
+}

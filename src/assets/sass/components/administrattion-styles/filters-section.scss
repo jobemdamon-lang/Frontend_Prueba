@@ -1,0 +1,27 @@
+.administration-dt{
+  .react-datalist-input__listbox  {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .react-datalist-input__textbox {
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  .react-datalist-input__label {
+    font-weight: 200;
+  }
+}
+
+.combo::-webkit-scrollbar{
+  width: 8px;
+}
+.combo::-webkit-scrollbar-track {
+  background: white;        
+}
+.combo::-webkit-scrollbar-thumb {
+  background-color: rgb(192, 181, 181);    
+  border-radius: 20px;       
+}
+.combo:focus > .combo-option:checked { 
+  background-color: rgb(221, 239, 239) !important;
+}

@@ -1,0 +1,44 @@
+.timeline-with-icons {
+  border-left: 3px solid hsl(0, 0%, 90%);
+  position: relative;
+  list-style: none;
+}
+
+.timeline-with-icons .timeline-item {
+  position: relative;
+}
+.timeline-item::after{
+  left: -135px;
+  margin-top: 10px;
+  content: attr(data-owner);
+  font-weight: 100;
+  font-size: 0.9em;
+}
+
+.timeline-item h5{
+  margin-left: 15px;
+}
+
+.timeline-with-icons .timeline-item:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline-with-icons .timeline-icon {
+  position: absolute;
+  left: -46px;
+  background-color: hsl(217, 88.2%, 90%);
+  color: hsl(217, 88.8%, 35.1%);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.canceled {
+  background-color: hsl(0, 25%, 44%) !important;
+}

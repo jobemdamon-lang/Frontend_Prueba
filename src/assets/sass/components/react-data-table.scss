@@ -1,0 +1,131 @@
+$bg-dark: #2d3644;
+$bg-dark-sec: #424e61;
+$text-color: #E4E6EF;
+
+.ezgrid-dg-toolbar {
+    padding: 20px;
+    color: $text-color;
+    background-color: $bg-dark;
+
+    .ezgrid-dg-toolbar-section {
+        >input {
+            width: 100%;
+            height: 30px;
+            margin: 0;
+            border: none;
+            padding: 0.775rem 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: $text-color;
+            background-color: $bg-dark-sec;
+            background-clip: padding-box;
+            appearance: none;
+            border-radius: 0.2rem;
+        }
+
+        >input::placeholder {
+            color: $text-color;
+        }
+
+        >input:focus {
+            outline: none;
+        }
+    }
+}
+
+.ezgrid-dg-filter-cell {
+    background-color: $bg-dark;
+    padding: 0px 20px !important;
+
+    >input,
+    >*>input {
+        width: 100%;
+        height: 30px;
+        margin: 0;
+        border: none;
+        padding: 0.775rem 1rem;
+        border: 1px solid $bg-dark;
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 1.5;
+        color: $text-color;
+        background-color: $bg-dark-sec;
+        background-clip: padding-box;
+        appearance: none;
+        border-radius: 0.2rem;
+    }
+
+    >input::placeholder,
+    >*>input::placeholder {
+        color: $text-color;
+    }
+
+    >input:focus,
+    >*>input:focus {
+        outline: none;
+    }
+}
+
+.ezgrid-dg-filter {
+    background-color: #1f2836;
+}
+
+.react-table-grid {
+    padding: 15px;
+}
+
+.ezgrid-dg-grid {
+    border-radius: 10px;
+    border: 1px solid transparent !important;
+
+    .ezgrid-dg-popup {
+        min-height: 100px !important;
+        min-width: 300px !important;
+        padding: 10px !important;
+        background-color: #1f2836;
+        color: $text-color;
+
+        .ezgrid-dg-last-unlocked-cell:has(input):hover {
+            background-color: #424e61;
+            cursor: pointer;
+        }
+
+        .ezgrid-dg-selected-cell,
+        .ezgrid-dg-selected-row {
+            background-color: #2d3644;
+        }
+    }
+}
+
+.ezgrid-dg-header-cell {
+    background-color: $bg-dark;
+    color: $text-color;
+}
+
+div[data-row-identifier="Header"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+}
+/*
+.ezgrid-dg-h-scroll::-webkit-scrollbar{
+    scrollbar-color: blue;
+    color: #1f2836;
+    background-color: #424e61;
+}
+.ezgrid-dg-container::-webkit-scrollbar{
+    scrollbar-color: red;
+    color: blue;
+    background-color: red;
+}
+
+.ezgrid-dg-stretch{
+    scrollbar-color: red
+}
+.ezgrid-dg-horizontal_Stretch{
+    scrollbar-color: blue;
+}*/
+
+//ezgrid-dg-container ezgrid-dg-h-scroll

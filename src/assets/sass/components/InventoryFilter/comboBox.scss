@@ -1,0 +1,24 @@
+.comboBox{
+  font-family: Poppins, Helvetica, "sans-serif";
+  font-size: 0.875rem;
+  color: black;
+  width: 300px;
+  max-width: 300px;
+  height: 45px;
+  font-weight: 400;
+  border-color: rgb(200, 200, 200);
+  cursor: pointer;
+}
+.comboBox::-webkit-scrollbar{
+  width: 8px;
+}
+.comboBox::-webkit-scrollbar-track {
+  background: white;        
+}
+.comboBox::-webkit-scrollbar-thumb {
+  background-color: rgb(192, 181, 181);    
+  border-radius: 20px;       
+}
+.comboBox:focus > .combo-option:checked { 
+  background-color: rgb(221, 239, 239) !important;
+}

@@ -1,0 +1,20 @@
+.btn-access-modal {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(165, 165, 165);
+}
+.btn-access-modal:hover {
+  color: rgb(119, 189, 216);
+}
+.showContent {
+  transition: all 1s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  max-height: 5000px;
+}
+.hideContent{
+  transition: all 1s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+}

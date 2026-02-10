@@ -1,0 +1,47 @@
+.stepModule {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  max-width: 250px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 500;
+
+  .stepModule_leftIcon {
+    background-color: RGB(166, 182, 237);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .stepModule_content {
+    max-width: max-content;
+    max-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    p {
+      padding: 0 10px;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+  }
+
+  .stepModule_lastIcon {
+    height: 100%;
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.stepModule:hover {
+  background-color: RGB(224, 231, 247);
+}

@@ -1,0 +1,26 @@
+.request-change-container{
+  display: flex;
+  flex-direction: column;
+  .request-change-Infosection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .InfoSection-data{
+      width: 50%;
+      min-width: 200px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .InfoSection-timeline{
+      width: 50%;
+      padding-left: 100px;
+      min-width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

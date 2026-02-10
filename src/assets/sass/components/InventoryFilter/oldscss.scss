@@ -1,0 +1,320 @@
+//Header of Filters styles
+.accordion-button {
+    height: 50px;
+}
+
+//DataList styles - Filter Inputs File
+.react-datalist-input__listbox {
+    overflow: auto;
+    max-height: 200px;
+}
+
+.react-datalist-input__textbox {
+    display: inline-block;
+    height: 45px;
+    color: black;
+}
+
+//TextInputs styles - Filter Inputs File
+.custom-input .form-control {
+    font-size: 1rem;
+    color: black;
+    width: 300px;
+    max-width: 300px;
+    height: 45px;
+    font-weight: 400;
+    border-color: rgb(200, 200, 200);
+}
+
+.input-text-label {
+    color: black;
+    font-size: 0.875rem;
+}
+
+.form-filter-alp {
+    height: 45px !important;
+    width: 130px;
+    border-color: rgb(200, 200, 200);
+}
+
+//Dropdown styles - Filter Inputs File
+.dropdown-toggle {
+    width: 250px;
+    color: black;
+    font-weight: 400;
+    font-size: 0.875rem;
+    height: 45px;
+    border: 1px solid rgb(200, 200, 200) !important;
+}
+
+.dropdown-menu {
+    overflow: auto;
+    width: 250px;
+    max-height: 200px;
+}
+
+
+
+/* .form-select {
+    color: black;
+    font-weight: 400;
+    font-size: 5rem ;
+    height: 45px;
+    border-color: rgb(200, 200, 200);
+  }
+   */
+
+.category-card {
+    /*   display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; */
+    padding: 10px;
+    border-radius: 8px;
+    height: 120px;
+    width: 150px;
+
+    box-sizing: border-box;
+    border: 1px solid transparent;
+
+    &:hover {
+        /* border: 1px solid black; */
+        box-shadow: 1px 1px gray;
+    }
+
+    .category-title {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .category-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .category-item {
+            height: 40px;
+            width: 40px;
+            display: block;
+        }
+
+        .quantity {
+            margin: 5px;
+            font-size: 2.5rem;
+        }
+
+    }
+}
+
+.alice-carousel {
+    .alice-carousel__dots {
+        display: none;
+    }
+}
+
+.alice-carousel__prev-btn {
+    padding: 10px 0 0 0;
+}
+
+.alice-carousel__next-btn {
+    padding: 10px 0 0 0;
+}
+
+.categories-skeleton {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    gap: 2;
+    justify-content: space-between;
+}
+
+.categories-skeleton div {
+    border-radius: 8px;
+    height: 120px;
+    width: 150px;
+
+}
+
+.card-COMUNICACIONES {
+    background-color: RGB(2, 168, 245);
+}
+
+.card-SERVIDORES {
+    background-color: RGB(233, 31, 99);
+}
+
+.card-BASEDEDATOS {
+    background-color: RGB(255, 192, 7);
+}
+
+.card-APLICACION {
+    background-color: RGB(120, 85, 73);
+}
+
+.card-STORAGE {
+    background-color: RGB(254, 87, 34);
+}
+
+.card-SISTEMASOPERATIVOS {
+    background-color: RGB(0, 150, 136);
+}
+
+.card-BACKUPS {
+    background-color: RGB(103, 59, 182);
+}
+
+.card-FACILITIES {
+    background-color: RGB(204, 220, 57);
+}
+
+.card-APLICACION {
+    background-color: RGB(204, 220, 57);
+}
+
+.card-SISTEMADEVIRTUALIZACION {
+    background-color: RGB(204, 220, 57);
+}
+
+.card-SERVICIOS {
+    background-color: RGB(204, 220, 57);
+}
+
+.card-CLOUD {
+    background-color: #d2dca6;
+}
+
+.card-DISPOSITIVOS {
+    background-color: #a6dcc6;
+}
+
+.card-IMPRESORA {
+    background-color: #dcdba6;
+}
+
+.card-INSTALACIONES {
+    background-color: #a6dca9;
+}
+
+.card-MICROINFORMÁTICA {
+    background-color: #e4c08f;
+}
+
+.card-MONITOREO {
+    background-color: #be86da;
+}
+
+.card-SAP {
+    background-color: #9dd7cd;
+}
+
+.card-SEGURIDAD {
+    background-color: #dca6b8;
+}
+
+.option_group_buttons>.option_dropdown>.dropdown-toggle {
+    background-color: RGB(49, 53, 73) !important;
+    height: 40px;
+    width: 100px;
+}
+
+.option_dropdown>div {
+    min-width: 230px;
+    font-size: 1.02rem;
+    line-height: 38px;
+    padding: 6px 5px;
+}
+
+.option_group_buttons>.option_dropdown>.dropdown-toggle:hover {
+    background-color: RGB(74, 78, 99) !important;
+}
+
+.option_group_buttons>.option_dropdown>.dropdown-toggle:focus {
+    background-color: RGB(74, 78, 99) !important;
+}
+
+.option_dropdown>div>.dropdown-item:hover {
+    background-color: #eff2f5;
+}
+
+@media screen and (max-width: 350px) {
+    .option_group_buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.alice-carousel__dots {
+    display: none;
+}
+
+.expanded {
+    font-family: Poppins, Helvetica, 'sans-serif';
+    padding: 20px 0 20px 90px;
+    display: flex;
+    align-items: self-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    .expanded-section {
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        background-color: RGB(228, 230, 239, 0.4);
+        gap: 20px;
+
+        li {
+            list-style-type: none;
+
+            p {
+                display: inline-block;
+                margin: 0 0 0 15px;
+            }
+        }
+    }
+
+}
+
+.actions-cell-inventory>button.dropdown-toggle {
+    padding: 0 !important;
+    width: 50px;
+    background-color: transparent;
+    border: none !important;
+}
+
+.actions-cell-inventory>#dropdown-basic-button:hover {
+    background-color: rgba(215, 217, 220, 0.638) !important;
+}
+
+.actions-cell-inventory>#dropdown-basic-button:focus {
+    background-color: rgba(215, 217, 220, 0.638) !important;
+}
+
+.actions-cell-inventory>div {
+    width: 230px;
+
+    font-size: 1.1rem;
+    line-height: 38px;
+    padding: 6px 5px;
+}
+
+.actions-cell-inventory>div a {
+    font-weight: 400;
+}
+
+.actions-cell-inventory>div .dropdown-divider {
+    border-color: rgb(215, 217, 219);
+}
+
+.actions-cell-inventory>div a::before {
+    color: rgb(69, 86, 93);
+}
+
+.actions-cell-inventory>div>a:hover {
+    /* background-color: #eff2f5; */
+    background-color: RGB(243, 241, 255);
+    font-family: Poppins, Helvetica, "sans-serif";
+}

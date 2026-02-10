@@ -1,0 +1,31 @@
+.requestBox {
+  background-color: #DEF5E5;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  .number-request {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: darkcyan;
+  }
+  .request-info {
+    text-align: start;
+    padding-top: 10px;
+    color: rgb(48, 56, 68);
+    line-height: 3px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+.requestBox:hover  {
+  transition: all 0.5s ease;
+  box-shadow: 1px 1px gray;
+}

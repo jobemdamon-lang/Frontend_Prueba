@@ -1,0 +1,9 @@
+.addScrollbar::-webkit-scrollbar {
+  height: 10px;
+  cursor: auto;
+
+}
+.addScrollbar::-webkit-scrollbar-thumb {
+  cursor: auto;
+  border-radius: 10px;
+}

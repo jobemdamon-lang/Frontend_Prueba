@@ -1,0 +1,11 @@
+button {
+  border: none; 
+}
+
+li.dd-item5::after{
+  display: block !important;
+  width: 10px;
+  height: 10px;
+  background-color: red !important;
+  background: url ('/../public/media/icons/duotune/arrows/arr080.svg') transparent no-repeat;
+}
