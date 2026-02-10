@@ -1,20 +1,15 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS'
-        sonarQube 'SonarQube'
-    }
-
     stages {
 
-        stage('Checkout') {
+        stage('Checkout SCM') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Install dependencies') {
+        stage('Instalar dependencias') {
             steps {
                 bat 'npm install'
             }
@@ -26,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+        stage('Analisis SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     bat 'sonar-scanner'
@@ -43,4 +38,3 @@ pipeline {
         }
     }
 }
-
