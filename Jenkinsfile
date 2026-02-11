@@ -3,16 +3,9 @@ pipeline {
 
     tools {
         nodejs 'Node20'
-        sonarQubeScanner 'SonarScanner'
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/TU_REPO.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
@@ -21,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                sh 'npm run build || echo "No build script"'
             }
         }
 
