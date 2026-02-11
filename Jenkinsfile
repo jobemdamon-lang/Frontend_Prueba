@@ -1,44 +1,34 @@
 pipeline {
     agent any
 
-    stages {
+    tools {
+        nodejs 'Node20'
+        sonarQubeScanner 'SonarScanner'
+    }
 
-        stage('Checkout SCM') {
+    stages {
+        stage('Checkout') {
             steps {
-                checkout scm
+                git 'https://github.com/TU_REPO.git'
             }
         }
 
-        stage('Instalar dependencias') {
+        stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'npm run build'
+                sh 'npm run build'
             }
         }
 
-        stage('Analisis SonarQube') {
+        stage('SonarQube Analysis') {
             steps {
-                script {
-                    def scannerHome = tool 'SonarScanner'
-                    withSonarQubeEnv('SonarQube') {
-                        withEnv(['NODE_SKIP_PLATFORM_CHECK=1']) {
-                            bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
-                        }
-                    }
-                }
-            }
-        }
-
-
-        stage('Quality Gate') {
-            steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
+                withSonarQubeEnv('SonarQube') {
+                    sh 'sonar-scanner'
                 }
             }
         }
