@@ -3,7 +3,6 @@ pipeline {
 
     tools {
         nodejs 'Node20'
-        sonarRunner 'SonarScanner'
     }
 
     stages {
@@ -22,7 +21,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'sonar-scanner'
+                    sh """
+                        ${tool 'SonarScanner'}/bin/sonar-scanner
+                    """
                 }
             }
         }
