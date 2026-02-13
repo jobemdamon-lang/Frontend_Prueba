@@ -11,6 +11,7 @@ pipeline {
     }
 
     stages {
+
         stage('Install Dependencies') {
             steps {
                 sh 'npm ci'
@@ -26,27 +27,26 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner" 
+                    sh "${SCANNER_HOME}/bin/sonar-scanner"
                 }
             }
         }
-    
-        stage ('Quality Gate') {
+
+        stage('Quality Gate') {
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
         }
+    }
 
     post {
         success {
-            echo 'Quality GATE PASSED'
+            echo ' Quality Gate Passed'
         }
         failure {
-            echo 'Quality Gate FAILED'
+            echo ' Quality Gate Failed'
         }
     }
-
-    
 }
